@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/vbatts/docker-utils/opts"
-	"github.com/vbatts/docker-utils/sum"
-	"github.com/vbatts/docker-utils/version"
+	"github.com/flynn/docker-utils/opts"
+	"github.com/flynn/docker-utils/sum"
+	"github.com/flynn/docker-utils/version"
 )
 
 func main() {
