@@ -10,7 +10,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/docker/docker/pkg/archive"
 	flag "github.com/docker/docker/pkg/mflag"
-	"github.com/vbatts/docker-utils/registry/fetch"
+	"github.com/flynn/docker-utils/registry/fetch"
 )
 
 var (

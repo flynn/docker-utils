@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/vbatts/docker-utils/sum"
+	"github.com/flynn/docker-utils/sum"
 )
 
 /*

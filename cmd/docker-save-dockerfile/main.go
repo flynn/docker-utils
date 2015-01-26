@@ -11,7 +11,7 @@ import (
 	"path"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/vbatts/docker-utils/dockerfile"
+	"github.com/flynn/docker-utils/dockerfile"
 )
 
 var (
