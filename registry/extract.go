@@ -179,9 +179,13 @@ func extractTar(r *Registry, in io.Reader, tarsums bool) error {
 					}
 
 					imageExisted := false
-					checksum, err := r.LayerTarsum(hashid)
-					if err != nil {
-						return err
+
+					var checksum string
+					if tarsums {
+						checksum, err = r.LayerTarsum(hashid)
+						if err != nil {
+							return err
+						}
 					}
 					for _, e_image := range images {
 						if e_image.Id == hashid {
