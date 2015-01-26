@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/vbatts/docker-utils/registry"
-	"github.com/vbatts/docker-utils/version"
+	"github.com/flynn/docker-utils/registry"
+	"github.com/flynn/docker-utils/version"
 )
 
 var (

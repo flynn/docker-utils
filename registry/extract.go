@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 
 	"github.com/docker/docker/graph"
-	"github.com/vbatts/docker-utils/sum"
+	"github.com/flynn/docker-utils/sum"
 )
 
 /*

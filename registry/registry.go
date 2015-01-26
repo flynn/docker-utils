@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/docker/docker/registry"
-	"github.com/vbatts/docker-utils/version"
+	"github.com/flynn/docker-utils/version"
 )
 
 type Registry struct {
