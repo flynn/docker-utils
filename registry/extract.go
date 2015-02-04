@@ -2,6 +2,7 @@ package registry
 
 import (
 	"archive/tar"
+	"compress/gzip"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -69,8 +70,12 @@ func extractTar(r *Registry, in io.Reader, tarsums bool) error {
 			if err != nil {
 				return err
 			}
+			layer_gz := gzip.NewWriterLevel(layer_fh, gzip.BestCompression)
 			if !tarsums {
-				if _, err = io.Copy(layer_fh, t); err != nil {
+				if _, err = io.Copy(layer_gz, t); err != nil {
+					return err
+				}
+				if err = layer_gz.Close(); err != nil {
 					return err
 				}
 				if err = layer_fh.Close(); err != nil {
@@ -83,8 +88,11 @@ func extractTar(r *Registry, in io.Reader, tarsums bool) error {
 			if err != nil {
 				return err
 			}
-			str, err := sum.SumTarLayer(t, json_fh, layer_fh)
+			str, err := sum.SumTarLayer(t, json_fh, layer_gz)
 			if err != nil {
+				return err
+			}
+			if err = layer_gz.Close(); err != nil {
 				return err
 			}
 			if err = layer_fh.Close(); err != nil {
